@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ContentWithTargetPath Include="cpp/build/bin/QImageSharpNative-win-x64.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>QImageSharpNative-win-x64.dll</TargetPath>
+        </ContentWithTargetPath>
+
+        <ContentWithTargetPath Include="cpp/build/bin/QImageSharpNative-win-x86.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>QImageSharpNative-win-x86.dll</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+
+</Project>
