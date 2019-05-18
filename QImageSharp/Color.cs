@@ -16,165 +16,86 @@ namespace QImageSharp
     {
         private static class Internal
         {
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate IntPtr CreateQColorDelegate();
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern IntPtr CreateQColor();
 
-            public static readonly CreateQColorDelegate CreateQColor;
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern IntPtr CreateQColorRgb(int r, int g, int b, int a = 255);
 
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate IntPtr CreateQColorRgbDelegate(int r, int g, int b, int a = 255);
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern IntPtr CreateQColorCmyk(int c, int m, int y, int k, int a = 255);
 
-            public static readonly CreateQColorRgbDelegate CreateQColorRgb;
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern IntPtr CreateQColorHsl(int h, int s, int l, int a = 255);
 
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate IntPtr CreateQColorCmykDelegate(int c, int m, int y, int k, int a = 255);
-
-            public static readonly CreateQColorCmykDelegate CreateQColorCmyk;
-
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate IntPtr CreateQColorHslDelegate(int h, int s, int l, int a = 255);
-
-            public static readonly CreateQColorHslDelegate CreateQColorHsl;
-
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate void FreeQColorDelegate(IntPtr qColor);
-
-            public static readonly FreeQColorDelegate FreeQColor;
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void FreeQColor(IntPtr qColor);
 
             //Spec
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate ColorSpec QColorSpecDelegate(IntPtr qColor);
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern ColorSpec QColorSpec(IntPtr qColor);
 
-            public static readonly QColorSpecDelegate QColorSpec;
-
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate IntPtr QColorConvertToDelegate(IntPtr qColor, ColorSpec colorSpec);
-
-            public static readonly QColorConvertToDelegate QColorConvertTo;
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern IntPtr QColorConvertTo(IntPtr qColor, ColorSpec colorSpec);
 
             //Alpha
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate int QColorAlphaDelegate(IntPtr qColor);
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern int QColorAlpha(IntPtr qColor);
 
-            public static readonly QColorAlphaDelegate QColorAlpha;
-
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate IntPtr QColorSetAlphaDelegate(IntPtr qColor, int value);
-
-            public static readonly QColorSetAlphaDelegate QColorSetAlpha;
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern IntPtr QColorSetAlpha(IntPtr qColor, int value);
 
             //Get RGB
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate int QColorRedDelegate(IntPtr qColor);
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern int QColorRed(IntPtr qColor);
 
-            public static readonly QColorRedDelegate QColorRed;
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern int QColorGreen(IntPtr qColor);
 
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate int QColorGreenDelegate(IntPtr qColor);
-
-            public static readonly QColorGreenDelegate QColorGreen;
-
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate int QColorBlueDelegate(IntPtr qColor);
-
-            public static readonly QColorBlueDelegate QColorBlue;
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern int QColorBlue(IntPtr qColor);
 
             //Set RGB
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate void QColorSetRedDelegate(IntPtr qColor, int value);
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void QColorSetRed(IntPtr qColor, int value);
 
-            public static readonly QColorSetRedDelegate QColorSetRed;
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void QColorSetGreen(IntPtr qColor, int value);
 
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate void QColorSetGreenDelegate(IntPtr qColor, int value);
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void QColorSetBlue(IntPtr qColor, int value);
 
-            public static readonly QColorSetGreenDelegate QColorSetGreen;
-
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate void QColorSetBlueDelegate(IntPtr qColor, int value);
-
-            public static readonly QColorSetBlueDelegate QColorSetBlue;
-
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate void QColorSetRgbDelegate(IntPtr qColor, int r, int g, int b, int a = 255);
-
-            public static readonly QColorSetRgbDelegate QColorSetRgb;
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void QColorSetRgb(IntPtr qColor, int r, int g, int b, int a = 255);
 
             //HSL
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate int QColorHslHueDelegate(IntPtr qColor);
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern int QColorHslHue(IntPtr qColor);
 
-            public static readonly QColorHslHueDelegate QColorHslHue;
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern int QColorHslSaturation(IntPtr qColor);
 
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate int QColorHslSaturationDelegate(IntPtr qColor);
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern int QColorLightness(IntPtr qColor);
 
-            public static readonly QColorHslSaturationDelegate QColorHslSaturation;
-
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate int QColorLightnessDelegate(IntPtr qColor);
-
-            public static readonly QColorLightnessDelegate QColorLightness;
-
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate void QColorSetHslDelegate(IntPtr qColor, int h, int s, int l, int a = 255);
-
-            public static readonly QColorSetHslDelegate QColorSetHsl;
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void QColorSetHsl(IntPtr qColor, int h, int s, int l, int a = 255);
 
             //CMYK
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate int QColorCyanDelegate(IntPtr qColor);
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern int QColorCyan(IntPtr qColor);
 
-            public static readonly QColorCyanDelegate QColorCyan;
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern int QColorMagenta(IntPtr qColor);
 
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate int QColorMagentaDelegate(IntPtr qColor);
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern int QColorYellow(IntPtr qColor);
 
-            public static readonly QColorMagentaDelegate QColorMagenta;
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern int QColorBlack(IntPtr qColor);
 
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate int QColorYellowDelegate(IntPtr qColor);
-
-            public static readonly QColorYellowDelegate QColorYellow;
-
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate int QColorBlackDelegate(IntPtr qColor);
-
-            public static readonly QColorBlackDelegate QColorBlack;
-
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate void QColorSetCymkDelegate(IntPtr qColor, int c, int m, int y, int k, int a = 255);
-
-            public static readonly QColorSetCymkDelegate QColorSetCymk;
-
-            static Internal()
-            {
-                CreateQColor = NativeLib.LoadFunc<CreateQColorDelegate>("CreateQColor");
-                CreateQColorRgb = NativeLib.LoadFunc<CreateQColorRgbDelegate>("CreateQColorRgb");
-                CreateQColorCmyk = NativeLib.LoadFunc<CreateQColorCmykDelegate>("CreateQColorCmyk");
-                CreateQColorHsl = NativeLib.LoadFunc<CreateQColorHslDelegate>("CreateQColorHsl");
-                FreeQColor = NativeLib.LoadFunc<FreeQColorDelegate>("FreeQColor");
-                QColorSpec = NativeLib.LoadFunc<QColorSpecDelegate>("QColorSpec");
-                QColorConvertTo = NativeLib.LoadFunc<QColorConvertToDelegate>("QColorConvertTo");
-                QColorAlpha = NativeLib.LoadFunc<QColorAlphaDelegate>("QColorAlpha");
-                QColorSetAlpha = NativeLib.LoadFunc<QColorSetAlphaDelegate>("QColorSetAlpha");
-                QColorRed = NativeLib.LoadFunc<QColorRedDelegate>("QColorRed");
-                QColorGreen = NativeLib.LoadFunc<QColorGreenDelegate>("QColorGreen");
-                QColorBlue = NativeLib.LoadFunc<QColorBlueDelegate>("QColorBlue");
-                QColorSetRed = NativeLib.LoadFunc<QColorSetRedDelegate>("QColorSetRed");
-                QColorSetGreen = NativeLib.LoadFunc<QColorSetGreenDelegate>("QColorSetGreen");
-                QColorSetBlue = NativeLib.LoadFunc<QColorSetBlueDelegate>("QColorSetBlue");
-                QColorSetRgb = NativeLib.LoadFunc<QColorSetRgbDelegate>("QColorSetRgb");
-                QColorHslHue = NativeLib.LoadFunc<QColorHslHueDelegate>("QColorHslHue");
-                QColorHslSaturation = NativeLib.LoadFunc<QColorHslSaturationDelegate>("QColorHslSaturation");
-                QColorLightness = NativeLib.LoadFunc<QColorLightnessDelegate>("QColorLightness");
-                QColorSetHsl = NativeLib.LoadFunc<QColorSetHslDelegate>("QColorSetHsl");
-                QColorCyan = NativeLib.LoadFunc<QColorCyanDelegate>("QColorCyan");
-                QColorMagenta = NativeLib.LoadFunc<QColorMagentaDelegate>("QColorMagenta");
-                QColorYellow = NativeLib.LoadFunc<QColorYellowDelegate>("QColorYellow");
-                QColorBlack = NativeLib.LoadFunc<QColorBlackDelegate>("QColorBlack");
-                QColorSetCymk = NativeLib.LoadFunc<QColorSetCymkDelegate>("QColorSetCymk");
-            }
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern void QColorSetCymk(IntPtr qColor, int c, int m, int y, int k, int a = 255);
         }
 
         private IntPtr _instance;

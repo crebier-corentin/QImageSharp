@@ -7,21 +7,11 @@ namespace QImageSharp
     {
         private static class Internal
         {
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate int QPointManhattanLengthDelegate(ref Point point);
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern int QPointManhattanLength(ref Point point);
 
-            public static readonly QPointManhattanLengthDelegate QPointManhattanLength;
-
-            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-            public delegate int QPointDotProductDelegate(ref Point point1, ref Point point2);
-
-            public static readonly QPointDotProductDelegate QPointDotProduct;
-
-            static Internal()
-            {
-                QPointManhattanLength = NativeLib.LoadFunc<QPointManhattanLengthDelegate>("QPointManhattanLength");
-                QPointDotProduct = NativeLib.LoadFunc<QPointDotProductDelegate>("QPointDotProduct");
-            }
+            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            public static extern int QPointDotProduct(ref Point point1, ref Point point2);
         }
 
         #region Fields

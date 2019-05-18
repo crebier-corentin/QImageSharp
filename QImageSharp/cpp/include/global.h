@@ -1,10 +1,12 @@
 #ifndef QIMAGESHARP_GLOBAL_H
 #define QIMAGESHARP_GLOBAL_H
 
+#include <Qt>
+
 #if defined(QIMAGESHARP_LIBRARY)
-#define QIMAGESHARP_EXPORT __declspec(dllexport)
+#define QIMAGESHARP_EXPORT Q_DECL_EXPORT
 #else
-#define QIMAGESHARP_EXPORT __declspec(dllimport)
+#define QIMAGESHARP_EXPORT Q_DECL_IMPORT
 #endif
 
 #endif //QIMAGESHARP_GLOBAL_H
