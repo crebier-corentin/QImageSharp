@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Concurrent;
 using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace QImageSharp
@@ -35,7 +37,7 @@ namespace QImageSharp
                     : dlopen(filename, 0);
             }
 
-            public static T LoadFunc<T>(IntPtr lib, string name)
+            public static IntPtr LoadFuncPtr(IntPtr lib, string name)
             {
                 IntPtr func;
 
@@ -43,7 +45,7 @@ namespace QImageSharp
                     ? GetProcAddress(lib, name)
                     : dlsym(lib, name);
 
-                return Marshal.GetDelegateForFunctionPointer<T>(func);
+                return func;
             }
         }
 
@@ -74,7 +76,12 @@ namespace QImageSharp
 
         public static T LoadFunc<T>(string name)
         {
-            return Functions.LoadFunc<T>(Lib, name);
+            return Marshal.GetDelegateForFunctionPointer<T>(Functions.LoadFuncPtr(Lib, name));
+        }
+
+        public static IntPtr LoadFuncPtr(string name)
+        {
+            return Functions.LoadFuncPtr(Lib, name);
         }
     }
 }

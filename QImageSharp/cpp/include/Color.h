@@ -6,12 +6,12 @@
 
 extern "C" {
 
-QIMAGESHARP_EXPORT QColor *createQColor();
-QIMAGESHARP_EXPORT QColor *createQColorRgb(int r, int g, int b, int a = 255);
-QIMAGESHARP_EXPORT QColor *createQColorCmyk(int c, int m, int y, int k, int a = 255);
-QIMAGESHARP_EXPORT QColor *createQColorHsl(int h, int s, int l, int a = 255);
+QIMAGESHARP_EXPORT QColor *CreateQColor();
+QIMAGESHARP_EXPORT QColor *CreateQColorRgb(int r, int g, int b, int a = 255);
+QIMAGESHARP_EXPORT QColor *CreateQColorCmyk(int c, int m, int y, int k, int a = 255);
+QIMAGESHARP_EXPORT QColor *CreateQColorHsl(int h, int s, int l, int a = 255);
 
-QIMAGESHARP_EXPORT void freeQColor(QColor *qColor);
+QIMAGESHARP_EXPORT void FreeQColor(QColor *qColor);
 
 //Spec
 QIMAGESHARP_EXPORT QColor::Spec QColorSpec(QColor *qColor);

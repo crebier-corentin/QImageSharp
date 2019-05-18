@@ -15,17 +15,33 @@ namespace QImageSharp
     {
         private static class Internal
         {
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
-            public static extern void QSizeScale(ref Size size, int width, int height, AspectRatioMode mode);
+            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+            public delegate void QSizeScaleDelegate(ref Size size, int width, int height, AspectRatioMode mode);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
-            public static extern IntPtr QSizeScaled(Size size, int width, int height, AspectRatioMode mode);
+            public static QSizeScaleDelegate QSizeScale;
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
-            public static extern IntPtr QSizeBoundedTo(ref Size size, Size otherSize);
+            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+            public delegate IntPtr QSizeScaledDelegate(Size size, int width, int height, AspectRatioMode mode);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
-            public static extern IntPtr QSizeExpandedTo(ref Size size, Size otherSize);
+            public static QSizeScaledDelegate QSizeScaled;
+
+            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+            public delegate IntPtr QSizeBoundedToDelegate(ref Size size, Size otherSize);
+
+            public static QSizeBoundedToDelegate QSizeBoundedTo;
+
+            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+            public delegate IntPtr QSizeExpandedToDelegate(ref Size size, Size otherSize);
+
+            public static QSizeExpandedToDelegate QSizeExpandedTo;
+
+            static Internal()
+            {
+                QSizeScale = NativeLib.LoadFunc<QSizeScaleDelegate>("QSizeScale");
+                QSizeScaled = NativeLib.LoadFunc<QSizeScaledDelegate>("QSizeScaled");
+                QSizeBoundedTo = NativeLib.LoadFunc<QSizeBoundedToDelegate>("QSizeBoundedTo");
+                QSizeExpandedTo = NativeLib.LoadFunc<QSizeExpandedToDelegate>("QSizeExpandedTo");
+            }
         }
 
         #region Fields

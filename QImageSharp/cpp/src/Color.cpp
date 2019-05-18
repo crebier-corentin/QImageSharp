@@ -1,23 +1,23 @@
 #include "Color.h"
 #include <QColor>
 
-QColor *createQColor() {
+QColor *CreateQColor() {
     return new QColor();
 }
 
-QColor *createQColorRgb(int r, int g, int b, int a) {
+QColor *CreateQColorRgb(int r, int g, int b, int a) {
     return new QColor(r, g, b, a);
 }
 
-QColor *createQColorCmyk(int c, int m, int y, int k, int a) {
+QColor *CreateQColorCmyk(int c, int m, int y, int k, int a) {
     return new QColor(QColor::fromCmyk(c, m, y, k, a));
 }
 
-QColor *createQColorHsl(int h, int s, int l, int a) {
+QColor *CreateQColorHsl(int h, int s, int l, int a) {
     return new QColor(QColor::fromHsl(h, s, l, a));
 }
 
-void freeQColor(QColor *qColor) {
+void FreeQColor(QColor *qColor) {
     delete qColor;
 }
 
