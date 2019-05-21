@@ -54,8 +54,4 @@ install(TARGETS QImageSharpNative
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         )
-install(CODE "set(QImageSharpNative_NUGET_ID \"${QImageSharpNative_NUGET_ID}\")")
-install(CODE "set(QImageSharpNative_DIR \"${CMAKE_CURRENT_SOURCE_DIR}\")")
-install(CODE "set(CMAKE_SYSTEM_NAME \"${CMAKE_SYSTEM_NAME}\")")
-install(SCRIPT nuget-pack.cmake)
-#install(FILES ${HEADER_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
