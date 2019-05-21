@@ -1,0 +1,8 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ <ItemGroup>
+  <None Include="$(MSBuildThisFileDirectory)@QImageSharpNative_LIB_NAME@">
+     <Link>@QImageSharpNative_LIB_NAME@</Link>
+     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+ </ItemGroup>
+</Project>

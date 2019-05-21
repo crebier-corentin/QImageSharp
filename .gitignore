@@ -525,3 +525,8 @@ MigrationBackup/
 
 .idea/
 buildLinux.sh
+QImageSharp.Native.Windows.*
+QImageSharp.Native.Linux.*
+QImageSharp.Native.OSX.*
+nuget-pack-out.txt
+nuget-pack-err.txt

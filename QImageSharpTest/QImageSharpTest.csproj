@@ -24,4 +24,25 @@
       <ProjectReference Include="..\QImageSharp\QImageSharp.csproj" />
     </ItemGroup>
 
+    <ItemGroup Condition="Exists('../QImageSharp.Native/build/lib/QImageSharpNative.dll')">
+         <ContentWithTargetPath Include="../QImageSharp.Native/build/lib/QImageSharpNative.dll">
+             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+             <TargetPath>QImageSharpNative.dll</TargetPath>
+         </ContentWithTargetPath>
+     </ItemGroup>
+ 
+     <ItemGroup Condition="Exists('../QImageSharp.Native/build/lib/libQImageSharpNative.so')">
+         <ContentWithTargetPath Include="../QImageSharp.Native/build/lib/libQImageSharpNative.so">
+             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+             <TargetPath>libQImageSharpNative.so</TargetPath>
+         </ContentWithTargetPath>
+     </ItemGroup>
+ 
+     <ItemGroup Condition="Exists('../QImageSharp.Native/build/lib/libQImageSharpNative.dylib')">
+         <ContentWithTargetPath Include="../QImageSharp.Native/build/lib/libQImageSharpNative.dylib">
+             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+             <TargetPath>libQImageSharpNative.dylib</TargetPath>
+         </ContentWithTargetPath>
+     </ItemGroup>
+
 </Project>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>@QImageSharpNative_NUGET_ID@</id>
+    <version>@CMAKE_PROJECT_VERSION@-alpha</version>
+    <authors>bibo5088</authors>
+    <owners>bibo5088</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package description</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+  </metadata>
+
+   <files>
+    <file src="build\lib\@QImageSharpNative_LIB_NAME@" target="Build\" />
+    <file src="@QImageSharpNative_NUGET_ID@.targets" target="Build\" />
+  </files>
+
+</package>
