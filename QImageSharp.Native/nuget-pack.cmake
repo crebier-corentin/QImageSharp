@@ -8,8 +8,8 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
     set(nuget_arg2 "")
 
 else ()
-    set(nuget_cmd "dotnet")
-    set(nuget_arg1 "nuget")
+    set(nuget_cmd "mono")
+    set(nuget_arg1 "nuget.exe")
     set(nuget_arg2 "pack")
 
 endif ()
