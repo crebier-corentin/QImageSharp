@@ -16,85 +16,85 @@ namespace QImageSharp
     {
         private static class Internal
         {
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern IntPtr CreateQColor();
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern IntPtr CreateQColorRgb(int r, int g, int b, int a = 255);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern IntPtr CreateQColorCmyk(int c, int m, int y, int k, int a = 255);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern IntPtr CreateQColorHsl(int h, int s, int l, int a = 255);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern void FreeQColor(IntPtr qColor);
 
             //Spec
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern ColorSpec QColorSpec(IntPtr qColor);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern IntPtr QColorConvertTo(IntPtr qColor, ColorSpec colorSpec);
 
             //Alpha
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern int QColorAlpha(IntPtr qColor);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern IntPtr QColorSetAlpha(IntPtr qColor, int value);
 
             //Get RGB
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern int QColorRed(IntPtr qColor);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern int QColorGreen(IntPtr qColor);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern int QColorBlue(IntPtr qColor);
 
             //Set RGB
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern void QColorSetRed(IntPtr qColor, int value);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern void QColorSetGreen(IntPtr qColor, int value);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern void QColorSetBlue(IntPtr qColor, int value);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern void QColorSetRgb(IntPtr qColor, int r, int g, int b, int a = 255);
 
             //HSL
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern int QColorHslHue(IntPtr qColor);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern int QColorHslSaturation(IntPtr qColor);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern int QColorLightness(IntPtr qColor);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern void QColorSetHsl(IntPtr qColor, int h, int s, int l, int a = 255);
 
             //CMYK
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern int QColorCyan(IntPtr qColor);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern int QColorMagenta(IntPtr qColor);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern int QColorYellow(IntPtr qColor);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern int QColorBlack(IntPtr qColor);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern void QColorSetCymk(IntPtr qColor, int c, int m, int y, int k, int a = 255);
         }
 

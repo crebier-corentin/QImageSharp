@@ -15,16 +15,16 @@ namespace QImageSharp
     {
         private static class Internal
         {
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern void QSizeScale(ref Size size, int width, int height, AspectRatioMode mode);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern IntPtr QSizeScaled(Size size, int width, int height, AspectRatioMode mode);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern IntPtr QSizeBoundedTo(ref Size size, Size otherSize);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern IntPtr QSizeExpandedTo(ref Size size, Size otherSize);
         }
 

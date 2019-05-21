@@ -8,6 +8,6 @@ namespace QImageSharp
 {
     internal static class NativeLib
     {
-        public const string DllName = "QImageSharpNative";
+        public const string Name = "QImageSharpNative";
     }
 }

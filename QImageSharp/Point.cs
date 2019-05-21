@@ -7,10 +7,10 @@ namespace QImageSharp
     {
         private static class Internal
         {
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern int QPointManhattanLength(ref Point point);
 
-            [DllImport(NativeLib.DllName, CallingConvention = CallingConvention.Cdecl)]
+            [DllImport(NativeLib.Name, CallingConvention = CallingConvention.Cdecl)]
             public static extern int QPointDotProduct(ref Point point1, ref Point point2);
         }
 
@@ -44,5 +44,29 @@ namespace QImageSharp
         }
 
         #endregion
+
+        #region Operators
+
+        public static bool operator ==(Point p1, Point p2)
+        {
+            return p1.X == p2.X && p1.Y == p2.Y;
+        }
+
+        public static bool operator !=(Point p1, Point p2)
+        {
+            return !(p1 == p2);
+        }
+
+        public static Point operator +(Point p1, Point p2)
+        {
+            return new Point(p1.X + p2.X, p1.Y + p2.Y);
+        }
+
+        #endregion
+        
+        public override string ToString()
+        {
+            return $"Size X={X} Y={Y}";
+        }
     }
 }
