@@ -1,9 +1,10 @@
+using System;
 using System.Runtime.InteropServices;
 
 namespace QImageSharp
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct Point
+    public struct Point : IEquatable<Point>
     {
         private static class Internal
         {
@@ -63,7 +64,29 @@ namespace QImageSharp
         }
 
         #endregion
-        
+
+        #region Equals
+
+        public bool Equals(Point other)
+        {
+            return X == other.X && Y == other.Y;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Point other && Equals(other);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (X * 397) ^ Y;
+            }
+        }
+
+        #endregion
+
         public override string ToString()
         {
             return $"Size X={X} Y={Y}";

@@ -28,24 +28,35 @@ endif ()
 if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
     set(QImageSharpNative_LIB_NAME "QImageSharpNative.dll")
     set(QImageSharpNative_NUGET_ID "QImageSharp.Native.Windows")
-
+    set(RID_PlATFORM "win")
+    
 elseif (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     set(QImageSharpNative_LIB_NAME "libQImageSharpNative.dll")
     set(QImageSharpNative_NUGET_ID "QImageSharp.Native.Linux")
-
+    set(RID_PlATFORM "linux")
+    
 elseif (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     set(QImageSharpNative_LIB_NAME "libQImageSharpNative.dylib")
     set(QImageSharpNative_NUGET_ID "QImageSharp.Native.OSX")
+    set(RID_PlATFORM "osx")
+    
+endif ()
 
+#32 or 64 Name
+if (CMAKE_SIZEOF_VOID_P EQUAL 8)
+    # 64 bits
+    set(RID_ARCH "x64")
+elseif (CMAKE_SIZEOF_VOID_P EQUAL 4)
+    # 32 bits
+    set(RID_ARCH "x86")
 endif ()
 
 set_target_properties(QImageSharpNative PROPERTIES PREFIX "")
 set_target_properties(QImageSharpNative PROPERTIES OUTPUT_NAME ${QImageSharpNative_LIB_NAME})
 set_target_properties(QImageSharpNative PROPERTIES SUFFIX "")
 
-#Nuget files
+#Nuspec file
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/QImageSharp.Native.nuspec.in" "${CMAKE_CURRENT_SOURCE_DIR}/${QImageSharpNative_NUGET_ID}.nuspec" @ONLY)
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/QImageSharp.Native.targets.in" "${CMAKE_CURRENT_SOURCE_DIR}/${QImageSharpNative_NUGET_ID}.targets" @ONLY)
 
 #Install
 set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_SOURCE_DIR}/build")

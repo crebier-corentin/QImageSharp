@@ -12,8 +12,7 @@
   </metadata>
 
    <files>
-    <file src="build\lib\@QImageSharpNative_LIB_NAME@" target="Build\" />
-    <file src="@QImageSharpNative_NUGET_ID@.targets" target="Build\" />
+    <file src="build\lib\@QImageSharpNative_LIB_NAME@" target="runtimes/@RID_PlATFORM@-@RID_ARCH@/native" />
   </files>
 
 </package>
