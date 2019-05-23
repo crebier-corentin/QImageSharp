@@ -108,9 +108,6 @@ namespace QImageSharp
 
         #endregion
         
-        public override string ToString()
-        {
-            return $"Line X1={X1} Y1={Y1} X2={X2} Y2={Y2}";
-        }
+     
     }
 }

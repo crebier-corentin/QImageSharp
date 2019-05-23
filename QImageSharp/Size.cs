@@ -99,9 +99,6 @@ namespace QImageSharp
 
         #endregion
 
-        public override string ToString()
-        {
-            return $"Size Width={Width} Height={Height}";
-        }
+
     }
 }

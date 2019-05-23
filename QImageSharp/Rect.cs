@@ -17,16 +17,18 @@ namespace QImageSharp
 
         #region Constructor
 
-        Rect(int x1, int y1, int width, int height)
-        {
-            _x1 = x1;
-            _y1 = y1;
+        public static Rect Null => new Rect(0, 0, 0, 0);
 
-            _x2 = x1 + width - 1;
-            _y2 = y1 + height - 1;
+        public Rect(int x, int y, int width, int height)
+        {
+            _x1 = x;
+            _y1 = y;
+
+            _x2 = x + width - 1;
+            _y2 = y + height - 1;
         }
 
-        Rect(Point topLeft, Size size)
+        public Rect(Point topLeft, Size size)
         {
             _x1 = topLeft.X;
             _y1 = topLeft.Y;
@@ -199,14 +201,26 @@ namespace QImageSharp
 
         #region Size
 
-        public int Width => _x2 - _x1 + 1;
-        public int Height => _y2 - _y1 + 1;
-        public Size Size => new Size(Width, Height);
-
-        public void SetSize(Size size)
+        public int Width
         {
-            _x2 = size.Width + _x1 - 1;
-            _y2 = size.Height + _y1 - 1;
+            get => _x2 - _x1 + 1;
+            set => _x2 = value + _x1 - 1;
+        }
+
+        public int Height
+        {
+            get => _y2 - _y1 + 1;
+            set => _y2 = value + _y1 - 1;
+        }
+
+        public Size Size
+        {
+            get => new Size(Width, Height);
+            set
+            {
+                _x2 = value.Width + _x1 - 1;
+                _y2 = value.Height + _y1 - 1;
+            }
         }
 
         #endregion
